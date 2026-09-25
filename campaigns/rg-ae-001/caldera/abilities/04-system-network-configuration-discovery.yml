@@ -1,0 +1,23 @@
+- requirements: []
+  name: RG-AE-001 / 04 / System Network Configuration Discovery
+  description: Authorized, read-only network configuration discovery for RG-AE-001.
+    Collects local interface names, IPv4 and IPv6 addresses, default gateways, and
+    configured DNS servers from the Windows 11 lab target. No connections are created
+    and no adapter, DNS, firewall, routing, or proxy settings are changed.
+  technique_id: T1016.001
+  tactic: discovery
+  technique_name: 'System Network Configuration Discovery: Internet Connection Discovery'
+  executors:
+  - cleanup: []
+    timeout: 60
+    platform: windows
+    name: psh
+    payloads: []
+    parsers: []
+    command: "Get-NetIPConfiguration |\n    Select-Object InterfaceAlias,\n      \
+      \            @{Name='IPv4Address';Expression={$_.IPv4Address.IPAddress}},\n\
+      \                  @{Name='IPv6Address';Expression={$_.IPv6Address.IPAddress}},\n\
+      \                  @{Name='DefaultGateway';Expression={$_.IPv4DefaultGateway.NextHop}},\n\
+      \                  @{Name='DnsServers';Expression={$_.DnsServer.ServerAddresses\
+      \ -join ';'}} |\n    ConvertTo-Json -Compress"
+  id: 983c9dbe-6775-477b-97ed-46c29ace4f9b

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sanitized portfolio evidence. Date, endpoint-specific identifiers, and SID removed. -->
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-PowerShell" />
+    <EventID>4104</EventID>
+    <Channel>Microsoft-Windows-PowerShell/Operational</Channel>
+    <Computer>REDX-VM-WKS-01</Computer>
+  </System>
+  <EventData>
+    <Data Name="MessageNumber">1</Data>
+    <Data Name="MessageTotal">1</Data>
+    <Data Name="ScriptBlockText">[PSCustomObject]@{Campaign='RG-AE-001';Step='01';Technique='T1059.001';Hostname=$env:COMPUTERNAME;Username="$env:USERDOMAIN\$env:USERNAME";TimestampUtc=(Get-Date).ToUniversalTime().ToString('o')} | ConvertTo-Json -Compress</Data>
+  </EventData>
+</Event>

@@ -1,0 +1,35 @@
+- tactic: discovery
+  technique_name: File and Directory Discovery
+  technique_id: T1083
+  name: RG-AE-001 / 06 / Designated File Discovery
+  description: Authorized, scoped file and directory discovery for RG-AE-001. Enumerates
+    only the pre-created synthetic lab dataset under C:\LabData and returns file paths,
+    sizes, and UTC timestamps. The command does not access user profiles, cloud-synced
+    folders, browser data, credentials, removable media, network shares, or any real
+    personal data.
+  executors:
+  - name: psh
+    platform: windows
+    command: "Get-ChildItem -Path 'C:\\LabData' -Recurse -File |\n    Select-Object\
+      \ FullName, Length, LastWriteTimeUtc |\n    ConvertTo-Json -Compress"
+    code: null
+    language: null
+    build_target: null
+    payloads: []
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  requirements: []
+  privilege: ''
+  repeatable: false
+  buckets:
+  - discovery
+  additional_info: {}
+  access: {}
+  singleton: false
+  plugin: ''
+  delete_payload: true
+  id: d351e6c3-630f-468e-9fbb-c943d234bac7

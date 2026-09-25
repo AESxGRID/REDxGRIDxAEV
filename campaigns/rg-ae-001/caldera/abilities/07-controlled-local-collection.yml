@@ -1,0 +1,41 @@
+- tactic: collection
+  technique_name: Data from Local System
+  technique_id: T1005
+  name: RG-AE-001 / 07 / Controlled Local Collection
+  description: Authorized T1005 local collection simulation for RG-AE-001. Copies
+    one pre-created, synthetic lab-only text document from C:\LabData into the dedicated
+    local campaign collection directory and returns SHA-256 integrity values for source
+    and destination. No personal, production, credential, browser, cloud, removable-media,
+    or network-share data is accessed or transmitted.
+  executors:
+  - name: psh
+    platform: windows
+    command: $source='C:\LabData\Finance\Q3_Planning_LAB_ONLY.txt';$destinationDirectory='C:\ProgramData\RG-AE-001\Collection';$destination=Join-Path
+      -Path $destinationDirectory -ChildPath 'Q3_Planning_LAB_ONLY.txt';New-Item -Path
+      $destinationDirectory -ItemType Directory -Force | Out-Null;Copy-Item -Path
+      $source -Destination $destination -Force;[PSCustomObject]@{Campaign='RG-AE-001';Step='07';Technique='T1005';Source=$source;Destination=$destination;SourceSHA256=(Get-FileHash
+      -Path $source -Algorithm SHA256).Hash;DestinationSHA256=(Get-FileHash -Path
+      $destination -Algorithm SHA256).Hash} | ConvertTo-Json -Compress
+    code: null
+    language: null
+    build_target: null
+    payloads: []
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup:
+    - Remove-Item 'C:\ProgramData\RG-AE-001\Collection\Q3_Planning_LAB_ONLY.txt' -Force
+      -ErrorAction SilentlyContinue
+    variations: []
+    additional_info: {}
+  requirements: []
+  privilege: ''
+  repeatable: false
+  buckets:
+  - collection
+  additional_info: {}
+  access: {}
+  singleton: false
+  plugin: ''
+  delete_payload: true
+  id: c779295a-9bf3-4a11-a4e3-ebc6363f18a3

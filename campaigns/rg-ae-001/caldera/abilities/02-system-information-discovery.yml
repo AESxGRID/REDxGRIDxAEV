@@ -1,0 +1,35 @@
+- tactic: discovery
+  technique_name: System Information Discovery
+  technique_id: T1082
+  name: RG-AE-001 / 02 / System Information Discovery
+  description: Authorized, non-destructive host survey for RG-AE-001. Queries Windows
+    operating system details, hostname, version, build, architecture, and last boot
+    time. Returns structured output to Caldera. No files, registry settings, services,
+    accounts, or network configuration are modified.
+  executors:
+  - name: psh
+    platform: windows
+    command: "Get-CimInstance Win32_OperatingSystem |\n    Select-Object CSName, Caption,\
+      \ Version, BuildNumber, OSArchitecture, LastBootUpTime |\n    ConvertTo-Json\
+      \ -Compress"
+    code: null
+    language: null
+    build_target: null
+    payloads: []
+    uploads: []
+    timeout: 30
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  requirements: []
+  privilege: ''
+  repeatable: false
+  buckets:
+  - discovery
+  additional_info: {}
+  access: {}
+  singleton: false
+  plugin: ''
+  delete_payload: false
+  id: f3c9d064-8f43-4d89-b723-cda694f8510f

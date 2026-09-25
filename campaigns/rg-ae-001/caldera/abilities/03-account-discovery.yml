@@ -1,0 +1,36 @@
+- tactic: discovery
+  technique_name: 'Account Discovery: Local Account'
+  technique_id: T1087.001
+  name: RG-AE-001 / 03 / Account Discovery
+  description: 'Authorized, non-destructive account-context survey for RG-AE-001.
+    Identifies the current Windows security principal and lists local user account
+    names for the isolated Windows 11 lab target. The procedure does not alter accounts,
+    passwords, group memberships, privileges, or authentication settings.
+
+    '
+  executors:
+  - name: psh
+    platform: windows
+    command: '[PSCustomObject]@{Campaign=''RG-AE-001'';Step=''03'';Technique=''T1087'';CurrentIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent().Name;LocalUsers=((Get-LocalUser
+      | Select-Object -ExpandProperty Name) -join '';'')} | ConvertTo-Json -Compress'
+    code: null
+    language: null
+    build_target: null
+    payloads: []
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  requirements: []
+  privilege: ''
+  repeatable: false
+  buckets:
+  - discovery
+  additional_info: {}
+  access: {}
+  singleton: false
+  plugin: ''
+  delete_payload: false
+  id: bbf0d7f8-cb36-4b6c-892e-3a9d498f81c5

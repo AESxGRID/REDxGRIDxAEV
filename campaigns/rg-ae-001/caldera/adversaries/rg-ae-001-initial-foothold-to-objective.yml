@@ -1,0 +1,17 @@
+name: "RG-AE-001 \u2014 Initial Foothold to Objective"
+description: Authorized, isolated Windows 11 post-compromise micro-emulation. A controlled
+  agent executes PowerShell, performs host/account/network discovery, stages a benign
+  marker, discovers designated synthetic data, and copies one test file locally for
+  collection validation. No credential access, persistence, lateral movement, real
+  data access, or exfiltration is performed.
+atomic_ordering:
+- 8b3ae6cc-37fe-43d2-8b6f-b083681a8797
+- f3c9d064-8f43-4d89-b723-cda694f8510f
+- bbf0d7f8-cb36-4b6c-892e-3a9d498f81c5
+- 983c9dbe-6775-477b-97ed-46c29ace4f9b
+- 026b5f49-42f2-411e-9fd2-48bb796e9637
+- d351e6c3-630f-468e-9fbb-c943d234bac7
+- c779295a-9bf3-4a11-a4e3-ebc6363f18a3
+- e70d5915-e935-4265-889d-4d76bf3c2513
+adversary_id: 5ecc032d-96d9-4c8c-ba89-6af3112b1503
+objective: 495a9828-cab1-44dd-a0ca-66e58177d8cc

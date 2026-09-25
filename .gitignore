@@ -1,0 +1,49 @@
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Python / local tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+*.orig
+
+# Raw or private evidence in any campaign
+campaigns/*/evidence/raw/
+campaigns/*/evidence/original/
+campaigns/*/evidence/unredacted/
+campaigns/*/evidence/private/
+
+# Local configuration, secrets, and credentials
+.env
+.env.*
+*.key
+*.pem
+*.pfx
+*.p12
+*.crt
+*.cer
+secrets/
+credentials/
+private/
+
+# CALDERA lab-local state in any campaign
+campaigns/*/caldera/config/
+campaigns/*/caldera/conf/
+campaigns/*/caldera/data/
+campaigns/*/caldera/logs/
+campaigns/*/caldera/plugins/
+campaigns/*/caldera/.env

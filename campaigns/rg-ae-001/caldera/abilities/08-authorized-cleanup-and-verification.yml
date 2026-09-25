@@ -1,0 +1,25 @@
+- requirements: []
+  name: RG-AE-001 / 08 / Authorized Cleanup and Verification
+  description: Authorized post-execution cleanup for RG-AE-001. Removes only the campaign-created
+    staging and local collection directories beneath C:\ProgramData\RG-AE-001, removes
+    the synthetic C:\LabData dataset, and returns a verification object confirming
+    whether campaign paths remain. This is documented lab hygiene and rollback validation,
+    not an attempt to remove unrelated logs, security telemetry, or forensic evidence.
+  tactic: defense-evasion
+  technique_id: T1070.004
+  technique_name: File Deletion
+  executors:
+  - cleanup: []
+    timeout: 60
+    platform: windows
+    name: psh
+    payloads: []
+    parsers: []
+    command: "$campaignPaths = @(\n    'C:\\ProgramData\\RG-AE-001',\n    'C:\\LabData'\n\
+      )\nforeach ($path in $campaignPaths) {\n    Remove-Item -Path $path -Recurse\
+      \ -Force -ErrorAction SilentlyContinue\n}\n[PSCustomObject]@{\n    Campaign\
+      \ = 'RG-AE-001'\n    Step = '08'\n    Action = 'Authorized cleanup and verification'\n\
+      \    CleanupUtc = (Get-Date).ToUniversalTime().ToString('o')\n    RemainingCampaignPaths\
+      \ = @(\n        $campaignPaths | Where-Object { Test-Path $_ }\n    )\n} | ConvertTo-Json\
+      \ -Compress"
+  id: e70d5915-e935-4265-889d-4d76bf3c2513
