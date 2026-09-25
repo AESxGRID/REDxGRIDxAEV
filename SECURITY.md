@@ -1,24 +1,24 @@
-\# Security and Responsible Use
+\# SECURITY \& RESPONSIBLE USE
 
 
 
-\## Scope
+\## SCOPE
 
 
 
-This repository documents \*\*RG-AE-001\*\*, an authorized, controlled Windows post-compromise micro emulation performed exclusively in a scoped lab environment.
+REDxGRIDxAEV documents authorized adversary emulation \& validation campaigns performed exclusively in controlled lab environments.
 
 
 
-The included CALDERA ability definitions are intended for defensive validation, telemetry engineering, detection testing, and security education. They are not intended for use against systems, accounts, or networks without explicit authorization.
+The included content is intended for defensive validation, telemetry engineering, detection testing, security education, and portfolio demonstration. It must not be used against systems, accounts, or networks without explicit authorization.
 
 
 
-\## Evidence Handling
+\## EVIDENCE HANDLING
 
 
 
-All committed evidence has been curated and sanitized for publication. The repository intentionally excludes:
+All committed campaign evidence is reviewed and sanitized for publication. This repository intentionally excludes:
 
 
 
@@ -34,9 +34,9 @@ All committed evidence has been curated and sanitized for publication. The repos
 
 
 
-\## Reporting
+\## REPORTING
 
 
 
-If you identify sensitive material that may have been committed inadvertently, please do not open a public issue containing the material. Contact the repository owner privately so it can be reviewed and removed promptly.
+If you identify potentially sensitive material, do not publish it in a public issue. Contact the repository owner privately so it can be reviewed and removed promptly.
 
