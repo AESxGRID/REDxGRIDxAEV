@@ -1,8 +1,7 @@
-\# SECURITY \& RESPONSIBLE USE
+# SECURITY & RESPONSIBLE USE
 
 
-
-\## SCOPE
+## SCOPE
 
 
 
@@ -14,7 +13,7 @@ The included content is intended for defensive validation, telemetry engineering
 
 
 
-\## EVIDENCE HANDLING
+## EVIDENCE HANDLING
 
 
 
@@ -22,19 +21,19 @@ All committed campaign evidence is reviewed and sanitized for publication. This 
 
 
 
-\- Raw Windows Event Log exports and Sysmon archives
+- Raw Windows Event Log exports and Sysmon archives
 
-\- Network captures and endpoint artifacts
+- Network captures and endpoint artifacts
 
-\- Credentials, enrollment keys, tokens, certificates, and private configuration
+- Credentials, enrollment keys, tokens, certificates, and private configuration
 
-\- Live IP addresses, internal hostnames, and production infrastructure details
+- Live IP addresses, internal hostnames, and production infrastructure details
 
-\- Unredacted operational output
+- Unredacted operational output
 
 
 
-\## REPORTING
+## REPORTING
 
 
 
